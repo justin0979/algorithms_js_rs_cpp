@@ -11,3 +11,6 @@ I will work to solve every problem with Rust and C++.
 
 These solutions will only match the courses solutions if I just happen to solve the
 problems in the same manner.
+
+I have been mostly studying Rust these past several months, so the naming conventions may favor Rust's 
+style. I will try to keep the naming conventions the same in each language.

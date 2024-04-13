@@ -3,6 +3,16 @@
 The problems come from Stephen Grider's Udemy course
 [The Coding Inteview Bootcamp: Algorithms + Data Structures](https://www.udemy.com/course/coding-interview-bootcamp-algorithms-and-data-structure/).
 
+To run tests:
+```sh
+npx jest anagrams/test.js --watch
+```
+
+Or, use the `run.sh` script:
+```sh
+./run.sh anagrams
+```
+
 These are here only for me to review when I'm away from my desk.
 
 All problems will have a javascript solution.

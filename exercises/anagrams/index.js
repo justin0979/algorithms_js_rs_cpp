@@ -8,6 +8,22 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+  // Remove all non-alphanumeric characters.
+  let cleanStrA = stringA.replace(/\W/g, "");
+  let cleanStrB = stringB.replace(/\W/g, "");
+
+  if (cleanStrA.length !== cleanStrB.length) {
+    return false;
+  }
+
+  sortedCleanStrA = cleanStrA.toLowerCase().split("").sort().join("");
+  sortedCleanStrB = cleanStrB.toLowerCase().split("").sort().join("");
+
+  if (sortedCleanStrA === sortedCleanStrB) {
+    return true;
+  }
+  return false;
+}
 
 module.exports = anagrams;

@@ -10,11 +10,42 @@
 
 use regex::Regex;
 
-pub fn anagrams(mut s_one: String, mut s_two: String) -> bool {}
+pub fn anagrams(s_one: String, s_two: String) -> bool {
+    let re = Regex::new(r"(\W)").unwrap();
+
+    let clean_s_one = Regex::replace_all(&re, &s_one, "");
+    let clean_s_two = Regex::replace_all(&re, &s_two, "");
+
+    if clean_s_one.len() != clean_s_two.len() {
+        return false;
+    }
+
+    let mut lower_vc_one = clean_s_one.to_lowercase().chars().collect::<Vec<char>>();
+    let mut lower_vc_two = clean_s_two.to_lowercase().chars().collect::<Vec<char>>();
+
+    lower_vc_one.sort();
+    lower_vc_two.sort();
+
+    let sorted_s_one: String = lower_vc_one.into_iter().collect();
+    let sorted_s_two: String = lower_vc_two.into_iter().collect();
+
+    sorted_s_one == sorted_s_two
+}
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    //test("'RAIL! SAFETY!' is an anagram of 'fairy tales'", () => {
+    //  expect(anagrams("RAIL! SAEFTY!", "fairy tales")).toBeTruthy();
+    //});
+    #[test]
+    fn rail_safety_fairy_tales() {
+        let s_one = String::from("RAIL! SAFETY!");
+        let s_two = String::from("fairy tales");
+
+        assert_eq!(anagrams(s_one, s_two), true);
+    }
 
     #[test]
     fn hello_llohe() {

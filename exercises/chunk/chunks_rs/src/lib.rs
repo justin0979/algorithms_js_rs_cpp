@@ -1,4 +1,13 @@
-pub fn chunk(mut array: Vec<i32>, size: usize) -> Vec<Vec<i32>> {}
+pub fn chunk(mut array: Vec<i32>, size: usize) -> Vec<Vec<i32>> {
+    let mut chunks: Vec<Vec<i32>> = Vec::new();
+
+    while array.len() > size {
+        chunks.push(array.drain(0..size).collect());
+    }
+    chunks.push(array);
+
+    chunks
+}
 
 #[cfg(test)]
 mod chunks {
@@ -41,28 +50,3 @@ mod chunks {
         assert_eq!(solution, result);
     }
 }
-
-// pub mod chunks {
-//     pub fn chunk(array: Vec<i32>, size: usize) -> Vec<Vec<i32>> {
-//         let mut count = 0;
-//         let ans_arr_size = array.len() / size;
-//         let mut v_chunk = Vec::with_capacity(ans_arr_size);
-//         let mut start;
-//         let mut end;
-//
-//         while count < ans_arr_size {
-//             start = size * count;
-//             end = start + size;
-//             v_chunk.push(array[start..end].to_vec());
-//             count += 1;
-//
-//             // Check if there are any leftover integers still in array,
-//             // if so, put them in vector and push into v_chunk
-//             if count == ans_arr_size && end < array.len() {
-//                 v_chunk.push(array[end..array.len()].to_vec());
-//             }
-//         }
-//
-//         v_chunk
-//     }
-// }

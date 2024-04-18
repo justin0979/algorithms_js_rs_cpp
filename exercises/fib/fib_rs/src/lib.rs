@@ -1,4 +1,20 @@
-pub fn fib(n: i32) -> i32 {}
+pub fn fib(n: i32) -> i32 {
+    let mut fib_seq: Vec<i32> = vec![0, 1];
+
+    for i in 2..=n {
+        fib_seq.push(fib_seq[(i - 1) as usize] + fib_seq[(i - 2) as usize]);
+    }
+
+    fib_seq[n as usize]
+}
+
+pub fn fib_recursive(n: i32) -> i32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
 
 #[cfg(test)]
 mod fib_tests {

@@ -8,4 +8,25 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n) {
+  const fib_seq = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    fib_seq[i] = fib_seq[i - 1] + fib_seq[i - 2];
+  }
+
+  return fib_seq[n];
+}
+
+function fib_recursive(n) {
+  if (n === 1) {
+    return 1;
+  }
+  if (n === 0) {
+    return 0;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+
+module.exports = fib;

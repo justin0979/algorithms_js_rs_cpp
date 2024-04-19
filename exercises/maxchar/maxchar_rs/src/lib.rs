@@ -1,7 +1,3 @@
-// Below method stores string into vector of char, sorts it, then counts chars until
-// different char is encountered and starts count over; all the while, keeping track
-// of both the char with the highest count and that highest count.
-
 pub fn maxchar(s: String) -> char {
     'q'
 }

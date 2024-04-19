@@ -1,5 +1,26 @@
 pub fn maxchar(s: String) -> char {
-    'q'
+    let mut s_vec: Vec<char> = s.chars().collect::<Vec<char>>();
+    s_vec.sort();
+
+    let mut max_char: char = s_vec[0];
+    let mut curr_char: char = s_vec[0];
+    let mut max_count = 0;
+    let mut counter = 0;
+
+    for c in s_vec.into_iter() {
+        if curr_char == c {
+            counter += 1;
+        } else {
+            curr_char = c;
+            counter = 1;
+        }
+        if max_count < counter {
+            max_count = counter;
+            max_char = c;
+        }
+    }
+
+    max_char
 }
 
 #[cfg(test)]

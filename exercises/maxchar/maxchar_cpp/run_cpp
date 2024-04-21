@@ -1,0 +1,6 @@
+#!/bin/bash
+
+make &&\
+./maxchar &&\
+make clean &&\
+rm maxchar

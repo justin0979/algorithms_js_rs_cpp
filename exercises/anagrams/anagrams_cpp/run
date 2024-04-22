@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ ! -d ./anagrams_exe ]]; then
+  mkdir anagrams_exe
+fi
+
+g++ -o ./anagrams_exe/main main.cpp && ./anagrams_exe/main
+
+
